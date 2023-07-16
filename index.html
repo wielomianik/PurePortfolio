@@ -13,11 +13,16 @@
 
 <body>
 
-    <header>
+    <header id="info">
         <div class="h-ER-image">
             <div class="h-ER-main">
-                <h1>Kacper Frydlewicz</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipis.</p>
+                <div class="h-ER-main-image">
+                    <span></span>
+                </div>
+                <div class="h-ER-main-title">
+                    <h1>Kacper Frydlewicz</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipis.</p>
+                </div>
             </div>
             <div class="h-ER-canvas">
                 <section></section>
@@ -29,18 +34,13 @@
     <nav>
         <ul>
             <li><a href="#info">Informacje</a></li>
-            <li>
-                <a target="_blank" href="https://github.com/wielomianik">
-                    GitHub
-                    <i class="ti ti-brand-github-filled"></i>
-                </a>
-            </li>
-            <li><a href="#">O mnie</a></li>
+            <li><a href="#">Doświadczenie</a></li>
+            <li><a href="#about">O mnie</a></li>
             <li><a href="#">Kontakt</a></li>
         </ul>
     </nav>
 
-    <section id="info" class="s-ON-info">
+    <section class="s-ON-info">
         <div class="s-ON-card-container">
             <input type="radio" name="slider" id="item-1" checked>
             <input type="radio" name="slider" id="item-2">
@@ -48,7 +48,8 @@
 
             <label class="s-ON-card s-ON-card-one" for="item-1">
                 <div class="s-ON-text-container">
-                    <p>Pasjonat systemu operecyjnego Linux</p>
+                    <h3>Pasjonat systemu operacyjnego - LINUX</h3>
+                    <p>W swoich komputerach korzytstam z dystrybucji takich jak:<br> Manjaro, Linux Mint, Arch</p>
                 </div>
                 <div class="s-ON-text-shadow"></div>
                 <div class="s-ON-shadow"></div>
@@ -93,6 +94,10 @@
                 <a href=""></a>
             </div>
         </div>
+    </section>
+
+    <section id="about" class="s-ON-about">
+
     </section>
 
     <script src="./main.js"></script>
