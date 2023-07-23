@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import './animate.scss';
 
 * {
     box-sizing: border-box;
@@ -13,8 +14,12 @@ body {
 
     nav {
         height: 50px;
+        position: sticky;
+        top: 0;
+        overflow: hidden;
         background-color: #333;
         text-align: center;
+        z-index: 9000;
 
         ul li {
             display: inline-block;
@@ -31,14 +36,24 @@ body {
                 font-weight: bold;
                 transition: color 300ms;
             }
+
+            a:hover {
+                color: saddlebrown;
+                text-shadow: 1px 1px 8px saddlebrown;
+            }
         }
+    }
+    
+    section {
+        background-color: #c5c1dd5e;
     }
 }
 
 .h-ER-canvas {
+    position: absolute;
     width: 100%;
-    height: 100%;
-    position: relative;
+    height: 150px;
+    z-index: 5 ;
 }
 
 .h-ER-image {
@@ -47,6 +62,10 @@ body {
     background-image: url("../static/001.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+
+    span:hover {
+        animation: rotate-center 1s linear infinite both;
+    }
 }
 
 .h-ER-background-image {
@@ -62,10 +81,54 @@ body {
     height: 100%;
     position: relative;
     display: flex;
+    z-index: 10;
+}
+
+.h-ER-main-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 100%;
+    width: 35%;
+    padding-left: 2rem;
+    max-width: 150px;
+
+    span {
+        position: relative;
+        display: flex;
+        height: 90px;
+        width: 90px;
+        background-image: url("../static/003.jpg");
+        background-size: 120px;
+        background-repeat: repeat;
+        background-position: center;
+        border-radius: 50%;
+        z-index: 900;
+        box-shadow: 2px 2px 3px 1px #282b45a3;
+
+        &::after {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            content: '';
+            background-color: rebeccapurple;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+    }
+}
+
+.h-ER-main-title {
+    height: 100%;
+    width: auto;
+    display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
-    padding-left: 5%;
+    align-content: center;
+    padding-left: 1rem;
 
     h1 {
         color: white;
@@ -77,6 +140,7 @@ body {
     p {
         font-family: 'Ubuntu', sans-serif;
     }
+    
 }
 
 .s-ON-info {
@@ -109,36 +173,53 @@ body {
     transition: 0.4s ease-out;
 }
 
-.s-ON-text-container {
-    // position: absolute;
-    // color: white;
-    // padding: 25px;
-    // border-bottom-left-radius: 20px;
-    // border-bottom-right-radius: 20px;
-    // top: 80%;
-    // z-index: 10;
+.s-ON-card-text-container-row {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    color: white;
+    z-index: 5;
+    padding: 1.5rem;
+    overflow: auto;
 
     p {
         font-size: 16px;
         font-family: 'Ubuntu', sans-serif;
         font-weight: bold;
     }
+
+    h3 {
+        margin-bottom: 0.5em;
+        font-size: 20px;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: bold;
+    }
 }
 
-.s-ON-text-shadow {
-    // position: absolute;
-    // width: 100%;
-    // height: 20%;
-    // background-color: gray;
-    // opacity: 70%;
-    // border-bottom-left-radius: 20px;
-    // border-bottom-right-radius: 20px;
-    // top: 80%;
-    // z-index: 0;
+.s-ON-card-text-container {
+    position: absolute;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    text-align: left;
+    height: 35%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    top: 65%;
+    z-index: 10;
+    overflow: auto;
 }
 
-.s-ON-shadow {
-
+.s-ON-card-text-container-shadow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-color: #312f2fbd;
 }
 
 .s-ON-card-one {
@@ -148,11 +229,15 @@ body {
 }
 
 .s-ON-card-two {
-    background-color: yellow;
+    background-image: url("../static/004.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .s-ON-card-three {
-    background-color: aquamarine;
+    background-image: url("../static/005.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 input[name="slider"] {
@@ -234,4 +319,15 @@ input[name="slider"] {
         text-decoration: none;
         color: #333;
     }
+}
+
+.s-ON-about {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: calc(100vh - 200px);
 }

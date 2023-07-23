@@ -1,4 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@keyframes rotate-center {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,8 +20,12 @@ body {
 }
 body nav {
   height: 50px;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
   background-color: #333;
   text-align: center;
+  z-index: 9000;
 }
 body nav ul li {
   display: inline-block;
@@ -30,11 +42,19 @@ body nav ul li a {
   font-weight: bold;
   transition: color 300ms;
 }
+body nav ul li a:hover {
+  color: saddlebrown;
+  text-shadow: 1px 1px 8px saddlebrown;
+}
+body section {
+  background-color: rgba(197, 193, 221, 0.368627451);
+}
 
 .h-ER-canvas {
+  position: absolute;
   width: 100%;
-  height: 100%;
-  position: relative;
+  height: 150px;
+  z-index: 5;
 }
 
 .h-ER-image {
@@ -43,6 +63,9 @@ body nav ul li a {
   background-image: url("../static/001.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+}
+.h-ER-image span:hover {
+  animation: rotate-center 1s linear infinite both;
 }
 
 .h-ER-background-image {
@@ -58,18 +81,60 @@ body nav ul li a {
   height: 100%;
   position: relative;
   display: flex;
+  z-index: 10;
+}
+
+.h-ER-main-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 100%;
+  width: 35%;
+  padding-left: 2rem;
+  max-width: 150px;
+}
+.h-ER-main-image span {
+  position: relative;
+  display: flex;
+  height: 90px;
+  width: 90px;
+  background-image: url("../static/003.jpg");
+  background-size: 120px;
+  background-repeat: repeat;
+  background-position: center;
+  border-radius: 50%;
+  z-index: 900;
+  box-shadow: 2px 2px 3px 1px rgba(40, 43, 69, 0.6392156863);
+}
+.h-ER-main-image span::after {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-color: rebeccapurple;
+  border-radius: 50%;
+  opacity: 0.1;
+}
+
+.h-ER-main-title {
+  height: 100%;
+  width: auto;
+  display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
-  padding-left: 5%;
+  align-content: center;
+  padding-left: 1rem;
 }
-.h-ER-main h1 {
+.h-ER-main-title h1 {
   color: white;
   text-shadow: 1px 1px rgb(128, 128, 128);
   font-family: "Ubuntu", sans-serif;
   z-index: 5;
 }
-.h-ER-main p {
+.h-ER-main-title p {
   font-family: "Ubuntu", sans-serif;
 }
 
@@ -103,10 +168,51 @@ body nav ul li a {
   transition: 0.4s ease-out;
 }
 
-.s-ON-text-container p {
+.s-ON-card-text-container-row {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  color: white;
+  z-index: 5;
+  padding: 1.5rem;
+  overflow: auto;
+}
+.s-ON-card-text-container-row p {
   font-size: 16px;
   font-family: "Ubuntu", sans-serif;
   font-weight: bold;
+}
+.s-ON-card-text-container-row h3 {
+  margin-bottom: 0.5em;
+  font-size: 20px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bold;
+}
+
+.s-ON-card-text-container {
+  position: absolute;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  text-align: left;
+  height: 35%;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  top: 65%;
+  z-index: 10;
+  overflow: auto;
+}
+
+.s-ON-card-text-container-shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-color: rgba(49, 47, 47, 0.7411764706);
 }
 
 .s-ON-card-one {
@@ -116,11 +222,15 @@ body nav ul li a {
 }
 
 .s-ON-card-two {
-  background-color: yellow;
+  background-image: url("../static/004.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .s-ON-card-three {
-  background-color: aquamarine;
+  background-image: url("../static/005.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 input[name=slider] {
@@ -199,4 +309,15 @@ input[name=slider] {
   height: auto;
   text-decoration: none;
   color: #333;
+}
+
+.s-ON-about {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  height: calc(100vh - 200px);
 }/*# sourceMappingURL=style.css.map */
